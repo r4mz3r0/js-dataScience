@@ -1,0 +1,5 @@
+site_name: JavaScript for Data Science
+
+nav:
+    - Project: project.md
+    - About: about.md

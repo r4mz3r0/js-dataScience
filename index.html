@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>JavaScript for Data Science</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">JavaScript for Data Science</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="project/" class="nav-link">Project</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="about/" class="nav-link">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#1-introduction" class="nav-link">1. Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#2-basic-features" class="nav-link">2. Basic Features</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#3-callbacks" class="nav-link">3. Callbacks</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#side-effects-with-foreach" class="nav-link">SIDE EFFECTS WITH FOREACH</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#annotating-data" class="nav-link">ANNOTATING DATA</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="1-introduction">1. Introduction</h1>
+<ol>
+<li>Install Node on your computer, then run the commands node --version and npm --version to see which versions you have. </li>
+</ol>
+<pre><code class="bash">#Ubuntu/Linux 18.04
+&gt; sudo apt update 
+&gt; sudo apt install nodejs 
+&gt; node --version 
+&gt; sudo apt install npm 
+&gt; npm --version 
+</code></pre>
+
+<h1 id="2-basic-features">2. Basic Features</h1>
+<h3 id="typeof">TYPEOF</h3>
+<p>What kind of thing is typeof? Is it an expression? A function? Something else?
+(You might notice that typeof typeof is syntactically invalid. In such circum­stances, an Internet search engine is your friend, as is the Mozilla Developer Net­work JavaScript reference.</p>
+<p><strong>TYPEOF is a built-in operator. Typeof operator returns a sring indicating the type of the unevaluated oprand.</strong></p>
+<h3 id="fill-in-the-blanks">FILL IN THE BLANKS</h3>
+<ol>
+<li>
+<p>What does Array.push do? </p>
+<p><strong>Array.push appends an element to the end of the array 'Array'</strong></p>
+</li>
+<li>
+<p>How does a while loop work? </p>
+<p><strong>A while loop executes repeatedly based on a given boolean condition.</strong></p>
+</li>
+<li>
+<p>What does += do? </p>
+<p><strong>+= is a compound assignment operator. It increments the variable on the left by the value on the right and assigns it to the value on the left.</strong></p>
+</li>
+</ol>
+<pre><code class="javascript">x += 2
+# Is equivalent to 
+x =  x + 2
+</code></pre>
+
+<ol>
+<li>
+<p>What does Array.reverse do, and what does it return? </p>
+<p><strong>Array.reverse calls the function reverse() to change the sequenece of the array 'Array' and returns the reverse sequence.</strong></p>
+</li>
+</ol>
+<pre><code class="javascript">let current = 0
+let table = [] 
+while(current &lt; 5){
+    const entry `square of ${current} is ${curret current}`
+    table.push(entry)
+    current += 1 
+}
+table.reverse()
+for(let line of table){
+    console.log(line) 
+}
+</code></pre>
+
+<h3 id="what-is-truth">WHAT IS TRUTH?</h3>
+<p>Write a function called isTruthy that returns true for everything that JavaScript 
+considers truthy, and false for everything it considers falsy except empty arrays: 
+isTruthy should return false for those. </p>
+<pre><code class="javascript">const isTruthy = (values) =&gt; {
+    let array = []; 
+    for(let element of values){
+        if(element ){
+            if(Array.isArray(element) &amp;&amp; !element.length){
+                array.push(false);
+            }
+            else{
+                array.push(true); 
+            }
+        }
+        else{
+            array.push(false);      
+        }   
+    }
+    return(array);
+}
+let values = ['0','false',[],{},function(){},false, 0, '', &quot;&quot;, null, undefined, NaN];
+console.log(isTruthy(values));
+
+</code></pre>
+
+<h3 id="the-shape-of-things-to-come">THE SHAPE OF THINGS TO COME</h3>
+<p>We wrote the example function, limits, above to return [undefined,undefined]
+if a variable with no length is fed into it. What is the advantage of doing this as
+opposed to returning undefined only?</p>
+<p><strong>The function lmits returns both the lowest and highest values in the array, not just one. [undefined, undefined] means both lowest and highest values are undefined.</strong></p>
+<h3 id="combining-different-types">COMBINING DIFFERENT TYPES</h3>
+<p>What does <b>NaN</b> represent? What output would you expect from the code below?
+Try running it and see whether the results match your expectations. What are the
+implications of this behavior when working with real-world data?</p>
+<p><strong>NaN stands for Not a Number. The elements in the array 'first' are summed and stored in the variable total. The sum of the second array will be a NaN. The real world implications is that a dataset that includes a NaN element will compute as NaN</strong></p>
+<pre><code class="javascript">const first = [3, 7, 8, 9 , 1]
+console.log(`aggregating ${first}`)
+let total = 0
+for(let d of first){
+    total +=d
+}
+console.log(total)
+
+const second = [0, 3, -1, NaN, 8]
+console.log(`aggregating ${second}`)
+total = 0
+for (let d of second){
+    total += d
+}
+console.log(total)
+</code></pre>
+
+<h3 id="what-does-this-do">WHAT DOES THIS DO?</h3>
+<p>Explain what is happening in the assignment statement that creates the constant
+creature.</p>
+<p><strong>The constant creature is an object with genus and species as the keys and 'Callithrix' and 'Jacchus' as values</strong></p>
+<pre><code class="javascript">const genus = 'Callithrix'
+const species = 'Jacchus'
+const creature = {genus, species}
+console.log(creature)
+
+</code></pre>
+
+<h3 id="destructuring-assignment">DESTRUCTURING ASSIGNMENT</h3>
+<p>When this short program runs:</p>
+<pre><code class="javascript">const creature = {
+    genus: 'Callithrix', 
+    species: 'Jacchus'
+}
+const {genus, species} = creature
+console.log(`genus is ${genus}`)
+console.log(`species is ${species}`)
+</code></pre>
+
+<p>it produces </p>
+<p>genus is Callithrix <br>
+species is Jacchus </p>
+<p>but when this program runs: </p>
+<pre><code class="javascript">const creature = {
+    first: 'Callithrix', 
+    second: 'Jacchus'
+}
+console.log(`genus is ${genus}`)
+console.log(`species is ${species}`)
+</code></pre>
+
+<p>it produces: </p>
+<p>genus is undefined <br>
+species is undefined </p>
+<ol>
+<li>
+<p>What is the difference between these two programs?<br><strong>The name of the keys in the first program are different from the second. The second program does not find a key-value pair because the keys for the object creature are 'first' and 'second'</strong></p>
+</li>
+<li>
+<p>How does destructuring assignment work in general? <br><strong>The line {genus, species} = creature assigns values to the given keys. Destructuring assignment unpacks values form arrays, or properites from objects, into distinct variables.</strong></p>
+</li>
+<li>How can we use this technique to rewrite the require statement in
+src/basics/import.js so that clip can be called directly as clip(...)
+rather than as utilities.clip(...)? <br><strong>Us destructuring assignment to unpack utilities function onto clip</strong></li>
+</ol>
+<pre><code class="javascript">const utilities = require('./utilities')
+const {clip} =  utilities; 
+
+const data = [-1, 5, 3, 0, 10]
+console.log(`clip(${data}) -&gt; ${clip(data)}`)
+console.log(`clip(${data}, 5) -&gt; ${clip(data, 5)}`)
+
+</code></pre>
+
+<h3 id="return-to-me-for-my-heart-wants-you-only">RETURN TO ME, FOR MY HEART WANTS YOU ONLY</h3>
+<p>What output would you see in the console if you ran this code?</p>
+<pre><code class="javascript">const verbose_sum = (first, second) =&gt; {
+    console.log(`Going to add ${first} to ${second}`)
+    let total = first + second
+    return(total)
+    console.log(`Finishing summing`)
+}
+var result = verbose_sum(3, 6)
+console.log(result)
+</code></pre>
+
+<p><strong>3. Going to add 3 to 6 <br>9</strong></p>
+<h1 id="3-callbacks">3. Callbacks</h1>
+<h2 id="side-effects-with-foreach">SIDE EFFECTS WITH FOREACH</h2>
+<p>JavaScript arrays have a method called forEach, which calls a callback function once for each element of the array. Unlike map, forEach does not save the values returned by these calls or return an array of results. The full syntax is: </p>
+<pre><code class="javascript">someArray.forEach((value, location, container) =&gt; {
+    // 'value' is the value in 'someArray'
+    // 'location' is the index of the value 
+    // 'container' is the containing array (in this case, 'someArray')
+})
+</code></pre>
+
+<p>If you only need the value, you can provide a callback that only takes one parameter; if you only need the value and its location, you can provide a callback that takes two. Use this to write a funtion doubleInPlace that doubles all the values in an array in place: </p>
+<pre><code class="javascript">const vals = [1, 2, 3]
+doubleInPlace(vals)
+console.log(`vals after change: ${vals}`)
+
+</code></pre>
+
+<pre><code class="javascript">
+var doubleInPlace = (values) =&gt; {
+    values.forEach( (element, index, container) =&gt; {
+      container[index] = element*2;
+    });
+}
+
+</code></pre>
+
+<h1 id="annotating-data">ANNOTATING DATA</h1>
+<p>Given an array of objects representing observations of wild animas: </p>
+<pre><code class="javascript">data = [
+    {'date': '1977-7-16', 'sex':'M', 'species': 'NL'},
+    {'date': '1977-7-16', 'sex':'M', 'species': 'NL'},
+    {'date': '1977-7-16', 'sex':'F', 'species': 'DM'},
+    {'date': '1977-7-16', 'sex':'M', 'species': 'DM'},
+    {'date': '1977-7-16', 'sex':'M', 'species': 'DM'}, 
+    {'date': '1977-7-16', 'sex':'M', 'species': 'PF'},
+    {'date': '1977-7-16', 'sex':'F', 'species': 'PE'},
+    {'date': '1977-7-16', 'sex':'M', 'species': 'DM'}
+]
+</code></pre>
+
+<p>write a function that returns a new array of object like this: </p>
+<pre><code class="javascript">newData = [
+    {'seq': 3, 'year': '1977', 'sex': 'F', 'species': 'DM'},
+    {'seq': 7, 'year': '1977', 'sex': 'F', 'species': 'PE'}
+]
+</code></pre>
+
+<p><i>without</i> using any loops. The changes are: </p>
+<ul>
+<li>The date field is replaced with just the year </li>
+<li>Only observations of female animals are retained </li>
+<li>The retained records are given sequence numbers to relate them back to the orginal data. (These sequence numbers are 1-based rather 0-based.)</li>
+</ul>
+<p>You will probably want to use Array.reduce to generate the sequence numbers. </p>
+<p>''' javascript 
+const result = data.filter((x) =&gt; { if(x.sex == 'F') return(x)}) 
+```</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2020-07-02 03:46:42.224139+00:00
+-->

@@ -250,6 +250,6 @@ newData = [
 
 You will probably want to use Array.reduce to generate the sequence numbers. 
 
-''' javascript 
+``` javascript 
 const result = data.filter((x) => { if(x.sex == 'F') return(x)}) 
 ```
